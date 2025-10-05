@@ -1,0 +1,480 @@
+@import 'animate.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+body {
+  margin: 0;
+  background-color: #f9fafb;
+  color: #1f2937;
+  overflow-x: hidden;
+  padding-bottom: 80px; /* Space for navbar */
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 80px; /* Keep space for navbar on desktop */
+  }
+}
+
+/* Remove white space below footer */
+footer {
+  margin-bottom: -80px;
+}
+
+@media (min-width: 768px) {
+  footer {
+    margin-bottom: -80px;
+  }
+}
+
+/* Hide scrollbar globally */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Navbar styles */
+.navbar {
+  background: rgba(249, 250, 251, 0.8); /* Slightly transparent background */
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 30000;
+  width: 90%;
+  max-width: 360px;
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    max-width: 360px; /* Keep same width for consistency */
+    padding: 0.75rem;
+  }
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  color: #1f2937;
+  transition: color 0.3s ease;
+  width: 60px;
+}
+
+@media (min-width: 768px) {
+  .nav-link {
+    padding: 0.75rem;
+    width: 70px;
+  }
+}
+
+.nav-link:hover {
+  color: #4b5563;
+}
+
+.nav-link svg {
+  margin-bottom: 0.25rem;
+}
+
+.nav-link span {
+  font-size: 0.65rem;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .nav-link span {
+    font-size: 0.75rem;
+  }
+}
+
+section {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 10;
+}
+
+section.visible {
+  opacity: 1;
+}
+
+.cta-button {
+  background: #0D89CA;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.card {
+  background: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.typing-text {
+  display: inline-block;
+  border-right: 2px solid #1f2937;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #1f2937 }
+}
+
+.instagram-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.instagram-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.instagram-card:hover .overlay {
+  opacity: 1;
+}
+
+.team-photo {
+  transition: transform 0.3s ease;
+}
+
+.team-photo:hover {
+  transform: scale(1.1);
+}
+
+.accordion-header {
+  background: #ffffff;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: #f3f4f6;
+}
+
+.accordion-content {
+  display: none;
+  background: #f9fafb;
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion-content.active {
+  display: block;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon svg {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.input-icon input,
+.input-icon textarea {
+  padding-left: 3rem;
+  transition: border-color 0.3s ease;
+}
+
+.contact-card {
+  background: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15000;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.logo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #f9fafb;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: none !important;
+  border-bottom: none !important;
+  outline: none !important;
+}
+
+.logo-wrapper {
+  background: #f9fafb;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  max-width: 150px;
+}
+
+.marquee-text {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-weight: 900;
+  color: #1f2937;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.marquee-text:hover {
+  letter-spacing: 0.1em;
+  filter: brightness(1.2);
+}
+
+.team-card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.team-photo-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.team-photo {
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-photo {
+  transform: scale(1.05);
+}
+
+.team-overlay {
+  transition: opacity 0.3s ease;
+}
+
+.team-card:hover .team-overlay {
+  opacity: 0.8;
+}
+
+.team-linkedin {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.team-linkedin svg {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.animate__animated.animate__fadeInUp {
+  --animate-duration: 0.8s;
+}
+
+.text-primary {
+  color: #0D89CA;
+}
+
+/* Hero Section */
+.hero-text-container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Button Hover */
+.cta-button + .inline-block:hover {
+  transform: scale(1.05);
+}
+
+/* Animate.css Adjustments */
+.animate__animated.animate__fadeInDown,
+.animate__animated.animate__fadeInUp,
+.animate__animated.animate__fadeIn {
+  --animate-duration: 1s;
+}
+
+.animate__animated.animate__bounceIn {
+  --animate-duration: 1s;
+}
+
+/* Ripple Effect */
+.ripple-effect {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ZoomIn Animation */
+.animate__animated.animate__zoomIn {
+  --animate-duration: 1s;
+}
+
+/* Services Section */
+section#services .container {
+  position: relative;
+  z-index: 10;
+}
+
+section#services .absolute {
+  z-index: 0;
+}
+
+/* Glowing Line */
+.glowing-line {
+  box-shadow: 0 0 10px rgba(13, 137, 202, 0.7), 0 0 20px rgba(13, 137, 202, 0.5);
+  animation: glowing 2s infinite;
+}
+
+@keyframes glowing {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+/* Accordion Transition */
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.accordion-content.active {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* Responsive adjustments for About section */
+@media (max-width: 767px) {
+  #about .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  #about .flex {
+    gap: 2rem !important; /* Smaller gap on mobile */
+  }
+  #about .min-w-\\\[250px\\\] {
+    min-width: 150px !important; /* Smaller min-width on mobile */
+    max-width: 200px !important; /* Smaller max-width on mobile */
+  }
+  #about .scroller {
+    gap: 2rem !important; /* Match gap on mobile */
+  }
+}
+
+/* Existing global.css content (not repeated for brevity) */
+
+/* Hide navbar when popup is open */
+body.popup-open .navbar {
+  display: none !important;
+}
+
+/* Ensure popup overlay is topmost */
+.popup-overlay {
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+  isolation: isolate;
+}
+
+/* Ensure popup content stays interactive */
+.popup-overlay > div {
+  pointer-events: auto !important;
+}
+
+/* Lock scrolling and position */
+body.popup-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  top: 0 !important;
+  overscroll-behavior: none !important; /* Prevent bounce scrolling */
+}
+
+/* Suppress other content */
+body.popup-open * {
+  z-index: 10 !important;
+}
+
+body.popup-open .popup-overlay,
+body.popup-open .popup-overlay * {
+  z-index: 99999 !important;
+}
+
+/* Prevent scroll on html and body */
+html.popup-open,
+body.popup-open {
+  height: 100% !important;
+  overflow: hidden !important;
+}
